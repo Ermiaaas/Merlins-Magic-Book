@@ -1,0 +1,55 @@
+import random
+prompt = '> '
+
+game_state = [
+    ['_', '_', '_'],
+    ['_', '_', '_'],
+    ['_', '_', '_']
+
+]
+
+round_counter = 0
+
+game_end = False
+while not game_end:
+    print(f''' 
+
+        |   0   |   1   |   2   |
+    ------------------------------
+    0   |   {game_state[0][0]}   |   {game_state[0][1]}   |   {game_state[0][2]}   |
+    ------------------------------
+    1   |   {game_state[1][0]}   |   {game_state[1][1]}   |   {game_state[1][2]}   |
+    ------------------------------
+    2   |   {game_state[2][0]}   |   {game_state[2][1]}   |   {game_state[2][2]}   |
+    ''')
+
+    if (round_counter % 2) == 0:
+        player_done = False
+        while not player_done:
+            print('In welcher Zeile möchtest du dein Zeichen setzen?')
+            row = int(input(prompt))
+            print('In welcher Spalte willst du dein Zeichen setzen?')
+            column = int(input(prompt))
+            player_sign = 'X'
+
+
+            if game_state[row][column] != '_':
+                print('Versuchs nochmal')
+            else:
+                game_state[row][column] = player_sign
+                player_done = True
+                round_counter += 1
+    else:
+        ai_done = False
+        while not ai_done:
+            row = random.randint(0,2)
+            column = random.randint(0,2)
+            player_sign = 'O'
+
+            if game_state[row][column] == '_':
+                game_state[row][column] = player_sign
+                ai_done = True
+                round_counter += 1    
+    
+    if (game_state[0].count(player) == 3 or game_state[1].count(player) == 3 or game_state[2].count(player) == 3) or
+    (game_state)
