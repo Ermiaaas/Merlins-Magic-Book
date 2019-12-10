@@ -2,7 +2,7 @@ import time
 import sys
 import os
 import random
-
+clear = lambda: os.system('clear')
 #Ich verwende Delayprint um den Text fliessend angezeigt zu bekommen.
 
 def delay_print(s):
@@ -78,43 +78,19 @@ weiter = input(prompt)
 delay_print('Wie lautet dein Name?')
 player_name = input(prompt)
 
-print(f'''
-
-Also {player_name}, bitte wähle als erstes eine Kreatur.
-''')
 
 delay_print(f'{player_name}, pass auf, der Feuerdrache spawnt in der Arena! Wie möchtest du den Kampf beginnen?')
+time.sleep(2)
 
 player_hp_fight1 = 100
 
 health_me = 1000
 health_enemy = 1000
+
 time.sleep(2)
 done = False
 while done == False:
     print(f"""
-
-                              /                            )
-                              (                             |\ 
-                             /|                              \\
-                            //                                \\ 
-                           ///                                 \|
-                          /( \                                  )\ 
-                          \\  \_                               //)
-                           \\  :\__                           ///
-                            \\     )                         // \ 
-                             \\:  /                         // |/
-                              \\ / \                       //  \ 
-                               /)   \   ___..-'           (|  \_|
-                              //     /   _.'              \ \  \ 
-                             /|       \ \________          \ | /
-                            (| _ _  __/          '-.       ) /.'
-                             \\ .  '-.__            \_    / / \ 
-                              \\_'.     > --._ '.     \  / / /
-                               \ \      \     \  \     .' /.'
-                                \ \  '._ /     \ )    / .' |
-                                 \ \_     \_   |    .'_/ __/
-                                  \  \      \_ |   / /  _/ \_
                                    \  \       / _.' /  /     \ 
                                    \   |     /.'   / .'       '-,_
                                     \   \  .'   _.'_/             \ 
@@ -159,55 +135,84 @@ while done == False:
     kampf = input(prompt)
     if kampf == "1":
         randkampf = random.randrange(120, 220)
+        randkampf_enemy = random.randrange(100, 150)
         if randkampf > 170:
             print("Schwerthieb hat einen kritischen Treffer erziehlt.")
             print(f"Er hat {randkampf} Schaden gemacht.")
             health_enemy = (health_enemy - randkampf)
+            health_me = (health_me - randkampf_enemy)
         else: 
             print("Du hast Schwerthieb eingesetzt.")
             print(f"Er hat {randkampf} Schaden gemacht.")   
             health_enemy = (health_enemy - randkampf)
+            health_me = (health_me - randkampf_enemy)
         if health_enemy > 0:
             print(f"Der Gegner hat noch {health_enemy} Leben")
         else:
             print("Du hast den Feuerdrachen bezwungen!")
             print(f"""
-                              /                            )
-                              (                             |\
-                             /|                              \\
-                            //                                \\
-                           ///                                 \|
-                          /( \                                  )\
-                          \\  \_                               //)
-                           \\  :\__                           ///
-                            \\     )                         // \
-                             \\:  /                         // |/
-                              \\ / \                       //  \
-                               /)   \   ___..-'           (|  \_|
-                              //     /   _.'              \ \  \
-                             /|       \ \________          \ | /
-                            (| _ _  __/          '-.       ) /.'
-                             \\ .  '-.__            \_    / / \
-                              \\_'.     > --._ '.     \  / / /
-                               \ \      \     \  \     .' /.'               Gegner Leben    : |{health_enemy}/1000
-                                \ \  '._ /     \ )    / .' |
-                                 \ \_     \_   |    .'_/ __/
-                                  \  \      \_ |   / /  _/ \_
-                                   \  \       / _.' /  /     \
-                                   \   |     /.'   / .'       '-,_
-                                    \   \  .'   _.'_/             \
-                       /\    /\      ) ___(    /_.'           \    |
-                      | _\__// \    (.'      _/               |    |
-                      \/_  __  /--'`    ,                   __/    /
-                      (_ ) /b)  \  '.   :            \___.-'_/ \__/
-                      /:/:  ,     ) :        (      /_.'__/-'|_ _ /
-                     /:/: __/\ >  __,_.----.__\    /        (/(/(/
-                    (_(,_/V .'/--'    _/  __/ |   /
-                     VvvV  //`    _.-' _.'     \   \
-                       n_n//     (((/->/        |   /
-                       '--'         ~='          \  |
-                                                  | |_,,,
-                                                  \  \  /
-                                                   '.__) 
+   .
+  /|\
+  | |
+  |.|
+  |.|
+  |:|      __
+,_|:|_,   /  )
+  (Oo    / _I__                       Gegner Leben    : {health_enemy}/1000
+   +\ \  || o o)                        
+      \ \||_U_|                       
+        \ /.:.\-\                      
+         |.:. /-----\ 
+         |___|::oOo::|                 Deine Leben    : {health_me}/1000
+         /   |:<_T_>:|
+        |_____\ ::: /
+         | |  \ \:/
+         | |   | |
+         \ /   | \___
+         / |   \_____\ 
+         `-'
 """)        
             done = True
+    elif kampf == "2":
+        randkampf = random.randrange(60, 350)
+        randkampf_enemy = random.randrange(100, 150)
+        if randkampf > 280:
+            print("Kreuzschnitt hat einen kritischen Treffer erziehlt.")
+            print(f"Er hat {randkampf} Schaden gemacht.")
+            health_enemy = (health_enemy - randkampf)
+            health_me = (health_me - randkampf_enemy)
+        else: 
+            print("Du hast Kreuzschnitt eingesetzt.")
+            print(f"Er hat {randkampf} Schaden gemacht.")   
+            health_enemy = (health_enemy - randkampf)
+            health_me = (health_me - randkampf_enemy)
+        if health_enemy > 0:
+            print(f"Der Gegner hat noch {health_enemy} Leben")  
+        else:
+            print("Du hast den Feuerdrachen bezwungen!")
+            print(f"""
+   .
+  /|\
+  | |
+  |.|
+  |.|
+  |:|      __
+,_|:|_,   /  )
+  (Oo    / _I__                       Gegner Leben    : {health_enemy}/1000
+   +\ \  || o o)                        
+      \ \||_U_|                       
+        \ /.:.\-\                      
+         |.:. /-----\ 
+         |___|::oOo::|                 Deine Leben    : {health_me}/1000
+         /   |:<_T_>:|
+        |_____\ ::: /
+         | |  \ \:/
+         | |   | |
+         \ /   | \___
+         / |   \_____\ 
+         `-'
+""")        
+            done = True
+    
+    
+
