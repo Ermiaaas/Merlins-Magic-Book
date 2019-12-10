@@ -1,0 +1,213 @@
+import time
+import sys
+import os
+import random
+
+#Ich verwende Delayprint um den Text fliessend angezeigt zu bekommen.
+
+def delay_print(s):
+
+    for c in s:
+
+        sys.stdout.write(c)
+
+        sys.stdout.flush()
+
+        time.sleep(0.02)
+
+prompt = '>--I> '
+
+base_ad = 10
+
+#Dies hier sind alle Kreaturen die es in meinem Spiel gibt, alle haben einen Basiswert an schaden. Die Abilitys haben dan unterschiedlich schaden.
+
+
+ 
+#-------------------------------------------------------------------------------------------------------------------------------------
+
+player = input(prompt)
+yeet = input(prompt)
+
+delay_print('Drücke <enter> um das Spiel zu starten.')
+
+start = input(prompt)
+
+
+print('''
+
+ ███▄    █  ▒█████  ▄▄▄█████▓     █████▒██▓ ███▄    █  ▄▄▄       ██▓       
+ ██ ▀█   █ ▒██▒  ██▒▓  ██▒ ▓▒   ▓██   ▒▓██▒ ██ ▀█   █ ▒████▄    ▓██▒       
+▓██  ▀█ ██▒▒██░  ██▒▒ ▓██░ ▒░   ▒████ ░▒██▒▓██  ▀█ ██▒▒██  ▀█▄  ▒██░       
+▓██▒  ▐▌██▒▒██   ██░░ ▓██▓ ░    ░▓█▒  ░░██░▓██▒  ▐▌██▒░██▄▄▄▄██ ▒██░       
+▒██░   ▓██░░ ████▓▒░  ▒██▒ ░    ░▒█░   ░██░▒██░   ▓██░ ▓█   ▓██▒░██████▒   
+░ ▒░   ▒ ▒ ░ ▒░▒░▒░   ▒ ░░       ▒ ░   ░▓  ░ ▒░   ▒ ▒  ▒▒   ▓▒█░░ ▒░▓  ░   
+░ ░░   ░ ▒░  ░ ▒ ▒░     ░        ░      ▒ ░░ ░░   ░ ▒░  ▒   ▒▒ ░░ ░ ▒  ░   
+   ░   ░ ░ ░ ░ ░ ▒    ░          ░ ░    ▒ ░   ░   ░ ░   ░   ▒     ░ ░      
+         ░     ░ ░                      ░           ░       ░  ░    ░  ░   
+                                                                           
+     █████▒▄▄▄       ███▄    █ ▄▄▄█████▓ ▄▄▄        ██████▓██   ██▓        
+   ▓██   ▒▒████▄     ██ ▀█   █ ▓  ██▒ ▓▒▒████▄    ▒██    ▒ ▒██  ██▒        
+   ▒████ ░▒██  ▀█▄  ▓██  ▀█ ██▒▒ ▓██░ ▒░▒██  ▀█▄  ░ ▓██▄    ▒██ ██░        
+   ░▓█▒  ░░██▄▄▄▄██ ▓██▒  ▐▌██▒░ ▓██▓ ░ ░██▄▄▄▄██   ▒   ██▒ ░ ▐██▓░        
+   ░▒█░    ▓█   ▓██▒▒██░   ▓██░  ▒██▒ ░  ▓█   ▓██▒▒██████▒▒ ░ ██▒▓░        
+    ▒ ░    ▒▒   ▓▒█░░ ▒░   ▒ ▒   ▒ ░░    ▒▒   ▓▒█░▒ ▒▓▒ ▒ ░  ██▒▒▒         
+    ░       ▒   ▒▒ ░░ ░░   ░ ▒░    ░      ▒   ▒▒ ░░ ░▒  ░ ░▓██ ░▒░         
+    ░ ░     ░   ▒      ░   ░ ░   ░        ░   ▒   ░  ░  ░  ▒ ▒ ░░          
+                ░  ░         ░                ░  ░      ░  ░ ░             
+                                                           ░ ░             
+                        ▒██   ██▒ ██▒   █▓ ██▓                             
+                        ▒▒ █ █ ▒░▓██░   █▒▓██▒                             
+                        ░░  █   ░ ▓██  █▒░▒██▒                             
+                         ░ █ █ ▒   ▒██ █░░░██░                             
+                        ▒██▒ ▒██▒   ▒▀█░  ░██░                             
+                        ▒▒ ░ ░▓ ░   ░ ▐░  ░▓                               
+                        ░░   ░▒ ░   ░ ░░   ▒ ░                             
+                         ░    ░       ░░   ▒ ░                             
+                         ░    ░        ░   ░                               
+                                      ░        
+
+''')
+
+delay_print('''Willkommen in der Welt von NOT Finay Fantasy, du hast es dir zur Aufgabe 
+gemacht die verschiedensten Monster der Arenen zu bekaempfen und dich bis in die 
+Boss-Arena durchzuschlangen.
+''')
+
+weiter = input(prompt)
+
+delay_print('Wie lautet dein Name?')
+player_name = input(prompt)
+
+print(f'''
+
+Also {player_name}, bitte wähle als erstes eine Kreatur.
+''')
+
+delay_print(f'{player_name}, pass auf, der Feuerdrache spawnt in der Arena! Wie möchtest du den Kampf beginnen?')
+
+player_hp_fight1 = 100
+
+health_me = 1000
+health_enemy = 1000
+time.sleep(2)
+done = False
+while done == False:
+    print(f"""
+
+                              /                            )
+                              (                             |\ 
+                             /|                              \\
+                            //                                \\ 
+                           ///                                 \|
+                          /( \                                  )\ 
+                          \\  \_                               //)
+                           \\  :\__                           ///
+                            \\     )                         // \ 
+                             \\:  /                         // |/
+                              \\ / \                       //  \ 
+                               /)   \   ___..-'           (|  \_|
+                              //     /   _.'              \ \  \ 
+                             /|       \ \________          \ | /
+                            (| _ _  __/          '-.       ) /.'
+                             \\ .  '-.__            \_    / / \ 
+                              \\_'.     > --._ '.     \  / / /
+                               \ \      \     \  \     .' /.'
+                                \ \  '._ /     \ )    / .' |
+                                 \ \_     \_   |    .'_/ __/
+                                  \  \      \_ |   / /  _/ \_
+                                   \  \       / _.' /  /     \ 
+                                   \   |     /.'   / .'       '-,_
+                                    \   \  .'   _.'_/             \ 
+                       /\    /\      ) ___(    /_.'           \    |
+                      | _\__// \    (.'      _/               |    |
+                      \/_  __  /--'`    ,                   __/    /
+                      (_ ) /b)  \  '.   :            \___.-'_/ \__/
+                      /:/:  ,     ) :        (      /_.'__/-'|_ _ /
+                     /:/: __/\ >  __,_.----.__\    /        (/(/(/
+                    (_(,_/V .'/--'    _/  __/ |   /
+                     VvvV  //`    _.-' _.'     \   \ 
+                       n_n//     (((/->/        |   /
+                       '--'         ~='          \  |
+   .                                              | |_,,,
+  / \                                             \  \  /
+  | |                                             '.__) 
+  |.|
+  |.|
+  |:|      __
+,_|:|_,   /  )
+  (Oo    / _I_                         Gegner Leben    : |{health_enemy}/1000
+   +\ \  || __|                        
+      \ \||___|                       
+        \ /.:.\-\                      
+         |.:. /-----\ 
+         |___|::oOo::|                 Deine Leben     : |{health_me}/1000
+         /   |:<_T_>:|
+        |_____\ ::: /
+         | |  \ \:/
+         | |   | |
+         \ /   | \___
+         / |   \_____\ 
+         `-'
+
+    Welche Ability willst du einsetzen
+    
+    1   |   Schwerer Hieb
+    2   |   Kreuzschnitt
+
+    
+    """)
+    kampf = input(prompt)
+    if kampf == "1":
+        randkampf = random.randrange(120, 220)
+        if randkampf > 170:
+            print("Schwerthieb hat einen kritischen Treffer erziehlt.")
+            print(f"Er hat {randkampf} Schaden gemacht.")
+            health_enemy = (health_enemy - randkampf)
+        else: 
+            print("Du hast Schwerthieb eingesetzt.")
+            print(f"Er hat {randkampf} Schaden gemacht.")   
+            health_enemy = (health_enemy - randkampf)
+        if health_enemy > 0:
+            print(f"Der Gegner hat noch {health_enemy} Leben")
+        else:
+            print("Du hast den Feuerdrachen bezwungen!")
+            print(f"""
+                              /                            )
+                              (                             |\
+                             /|                              \\
+                            //                                \\
+                           ///                                 \|
+                          /( \                                  )\
+                          \\  \_                               //)
+                           \\  :\__                           ///
+                            \\     )                         // \
+                             \\:  /                         // |/
+                              \\ / \                       //  \
+                               /)   \   ___..-'           (|  \_|
+                              //     /   _.'              \ \  \
+                             /|       \ \________          \ | /
+                            (| _ _  __/          '-.       ) /.'
+                             \\ .  '-.__            \_    / / \
+                              \\_'.     > --._ '.     \  / / /
+                               \ \      \     \  \     .' /.'               Gegner Leben    : |{health_enemy}/1000
+                                \ \  '._ /     \ )    / .' |
+                                 \ \_     \_   |    .'_/ __/
+                                  \  \      \_ |   / /  _/ \_
+                                   \  \       / _.' /  /     \
+                                   \   |     /.'   / .'       '-,_
+                                    \   \  .'   _.'_/             \
+                       /\    /\      ) ___(    /_.'           \    |
+                      | _\__// \    (.'      _/               |    |
+                      \/_  __  /--'`    ,                   __/    /
+                      (_ ) /b)  \  '.   :            \___.-'_/ \__/
+                      /:/:  ,     ) :        (      /_.'__/-'|_ _ /
+                     /:/: __/\ >  __,_.----.__\    /        (/(/(/
+                    (_(,_/V .'/--'    _/  __/ |   /
+                     VvvV  //`    _.-' _.'     \   \
+                       n_n//     (((/->/        |   /
+                       '--'         ~='          \  |
+                                                  | |_,,,
+                                                  \  \  /
+                                                   '.__) 
+""")        
+            done = True
